@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faça o seu Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/medias.css">
 </head>
@@ -12,7 +17,9 @@
     <header>
         <h1>Controle de Acesso</h1>
         <h2>Curso de Eletrônica</h2>
-        <div id="logo-curso"></div>
+        <div id="box">
+            <div id="logo-curso"></div>
+        </div>
     </header>
     
     <div id="form">
@@ -21,19 +28,21 @@
 
         <form action="" method="post" autocomplete="on">
             <div class="input">
-                <label for="iuser">Usuário</label><br>
-                <input type="text" name="user" id="iuser" placeholder="Usuário" required>
+                <label for="iuser" id="label_Usuario">Usuário</label><br>
+                <input type="text" name="user" id="iuser" required>
             </div>
 
             <div class="input">
-                <label for="ipassword">Senha</label><br>
-                <input type="text" name="password" id="ipassword" placeholder="Senha" required>
+                <label for="ipassword" id="label_Senha">Senha</label><br>
+                <input type="password" name="password" id="ipassword" required>
             </div>
 
-            <input type="submit" value="Entrar">
+            <input type="submit" value="Entrar" id="submit">
 
-            <p><a href="#">Esqueceu a senha?</a></p>
-            <p><a href="#">Cadastre-se</a></p>
+            <div class="help">
+                <a href="#">Esqueceu a senha?</a>
+                <a href="#">Cadastre-se</a>
+            </div>      
         </form>
     </div>
 
