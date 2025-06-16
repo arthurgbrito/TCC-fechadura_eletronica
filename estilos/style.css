@@ -28,8 +28,8 @@ header h1, header h2 {
 }
 
 #box {
-    width: 85px;
-    height: 85px;
+    width: calc(85px + 5vw);
+    height: calc(85px + 5vw);
     background-color: white;
     border-radius: 25px;
     display: flex;
@@ -38,10 +38,11 @@ header h1, header h2 {
 }
 
 #logo-curso {
-    width: 70px;
-    height: 70px;
+    width: calc(85px + 3vw);
+    height: calc(85px + 3vw);
     background: white url('imagens/logo-tro.jpg') center no-repeat;
     background-size: contain;
+    border-radius: 20px;
     margin: auto;
 }
 

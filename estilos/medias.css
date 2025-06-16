@@ -1,7 +1,39 @@
 @charset "UTF-8";
 
-@media screen and (min-width: 992px) and (max-width: px){
+@media screen and (min-width: 768px) and (max-width: 992px){
+
+    body {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
     
-    
+    header h2 {
+        display: none;
+    }
+
+    header h1::after {
+        content: ' - Curso de Eletrônica';
+    }
+
+    #box {
+        width: 135px;
+        height: 135px;
+    }
+
+    #logo-curso {
+        width: 120px;
+        height: 120px;
+    }
+
+    #form {
+        width: 80vw;
+        height: 65vh;
+        border-radius: 80px;
+    }
+
+    .input, #submit {
+        width: 70%;
+    }
 
 }
