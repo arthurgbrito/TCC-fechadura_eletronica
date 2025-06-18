@@ -1,3 +1,39 @@
+
+<?php 
+
+    if (isset($_POST['Entrar']) && !empty($_POST['user']) && !empty($_POST['password'])){
+        
+        include_once('conexao.php');
+
+        $usuario = $_POST['user'];
+        $senha = $_POST['password'];
+
+        print_r('Usuário: '. $usuario);
+        print_r('<br>');
+        print_r('Senha: ' . $senha);
+
+        $confere = "SELECT * FROM usuarios WHERE Username = '$usuario' and Password = '$senha'";
+        
+        $resultado = $conn->query($confere);
+
+        /*print_r($confere);
+        print_r('<br>');
+        print_r($resultado);*/
+
+        if (mysqli_num_rows($resultado) == 0){
+            print_r('<br>');
+            print_r('Faça seu cadastro');
+        } else {
+            print_r('<br>');
+            print_r('Pode entrar piranha');
+        }
+
+        //$resultado = mysqli_query($conn, "INSERT INTO usuarios(Username, Password) VALUES ('$usuario', '$senha')");
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,7 +62,7 @@
         <h1>Login</h1>
         <p>Faça Login para continuar</p>
 
-        <form action="login.php" method="post" autocomplete="on">
+        <form action="index.php" method="post" autocomplete="on">
             <div class="input">
                 <label for="iuser" id="label_Usuario">Usuário</label><br>
                 <input type="text" name="user" id="iuser" required>
@@ -37,7 +73,7 @@
                 <input type="password" name="password" id="ipassword" required>
             </div>
 
-            <input type="submit" value="Entrar" id="submit">
+            <input type="submit" name="Entrar" value="Entrar" id="submit">
 
             <div class="help">
                 <a href="#">Esqueceu a senha?</a>
