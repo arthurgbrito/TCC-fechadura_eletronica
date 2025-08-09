@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+
+@media screen and (max-width: 900px) {
+    
+    main {
+        flex-flow: column nowrap;
+    }
+
+    section#historico, #interacao_Porta > div  {
+        height: 1000px;
+    }
+
+}
