@@ -1,16 +1,27 @@
+<?php 
+    session_start();
+
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)){
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema</title>
-    <link rel="stylesheet" href="estilos/style-sistema.css">
-    <link rel="stylesheet" href="estilos/medias-sistema.css">
-    </head>
+    <link rel="stylesheet" href="../estilos/style-sistema.css">
+    <link rel="stylesheet" href="../estilos/medias-sistema.css">
+    <link rel="shortcut icon" href="../estilos/imagens/logo-tro.ico" type="image/x-icon">
+</head>
 <body>
 
     <header>
-        <img src="estilos/imagens/logo-tro.png" alt="Logo Curso">
+        <img src="../estilos/imagens/logo-tro.png" alt="Logo Curso">
         <h1>Controle de Acesso - Curso de Eletrônica</h1>
     </header>
 
@@ -23,7 +34,7 @@
             <div id="estado_Porta">
                 <h1>Estado da Porta</h1>
                 <div>
-                    <img src="estilos/imagens/porta-fechada.png" alt="porta-aberta">
+                    <img src="../estilos/imagens/porta-fechada.png" alt="porta-aberta">
                     <h2>FECHADO</h2>
                 </div>
             </div>
@@ -51,7 +62,7 @@
                     </div>
                 </div>
                 
-                <button>Ativar Modo Aula</button>
+                <button onclick="window.location.href='ligaled.php?acao=on'">Ativar Modo Aula</button>
             </div>
         </section>
     </main>

@@ -10,14 +10,14 @@ if (isset($_POST['enviar'])){
   print_r('<br>');
   print_r('Cargo: ' . $_POST['cargo']);*/
 
-  include_once('conexao.php');
+  include_once('../conexao.php');
 
-  $usuario = $_POST['usuario'];
+  $nome = $_POST['nome'];
   $senha = $_POST['senha'];
   $email = $_POST['email'];
   $cargo = $_POST['cargo'];
 
-  $resultado = mysqli_query($conn, "INSERT INTO usuarios(Username, Password, Email, Cargo) VALUES ('$usuario', '$senha', '$email', '$cargo')");
+  $resultado = mysqli_query($conn, "INSERT INTO usuarios(Nome, Password, Email, Cargo) VALUES ('$nome', '$senha', '$email', '$cargo')");
   
   header('Location: login.php');
 
@@ -30,9 +30,10 @@ if (isset($_POST['enviar'])){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro - Controle de Acesso</title>
-  <link rel="stylesheet" href="estilos/style-cadastro.css">
-  <link rel="stylesheet" href="estilos/medias-cadastro.css">
+  <link rel="stylesheet" href="../estilos/style-cadastro.css">
+  <link rel="stylesheet" href="../estilos/medias-cadastro.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="../estilos/imagens/logo-tro.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -42,7 +43,7 @@ if (isset($_POST['enviar'])){
       <h2>Curso de Eletrônica</h2>
     </div>
     <div class="box-image">
-      <img src="estilos/imagens/logo-tro.png" alt="Logo TRO Eletrônica">
+      <img src="../estilos/imagens/logo-tro.png" alt="Logo TRO Eletrônica">
     </div>
   </header>
 
@@ -90,6 +91,21 @@ if (isset($_POST['enviar'])){
       <div class="link-login">
         <p>Já tenho cadastro? <a href="login.php">Login</a></p>
       </div>
+
+      <script>
+
+        const olho = document.getElementById('olho');
+        const senha = document.getElementById('senha');
+
+        olho.addEventListener('click', () => {
+            const senhaVisivel = senha.type ==='text';
+            senha.type = senhaVisivel ? 'password' : 'text';
+            
+            olho.classList.toggle('bi-eye-fill', senhaVisivel);
+            olho.classList.toggle('bi-eye-slash-fill', !senhaVisivel);
+        });
+
+    </script>
 
   </section>
 

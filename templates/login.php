@@ -1,29 +1,27 @@
 
 <?php 
 
-    if (isset($_POST['Entrar']) && !empty($_POST['user']) && !empty($_POST['password'])){
-        
-        include_once('conexao.php');
+    session_start();
 
-        $usuario = $_POST['user'];
+    if (isset($_POST['Entrar']) && !empty($_POST['email']) && !empty($_POST['password'])){
+        
+        include_once('../conexao.php');
+
+        $email = $_POST['email'];
         $senha = $_POST['password'];
 
-        /*print_r('Usuário: '. $usuario);
-        print_r('<br>');
-        print_r('Senha: ' . $senha);*/
-
-        $confere = "SELECT * FROM usuarios WHERE Username = '$usuario' and Password = '$senha'";
+        $confere = "SELECT * FROM usuarios WHERE Email = '$email' and Password = '$senha'";
         
         $resultado = $conn->query($confere);
 
-        /*print_r($confere);
-        print_r('<br>');
-        print_r($resultado);*/
-
         if (mysqli_num_rows($resultado) == 0){
+            unset($_SESSION['email']);
+            unset($_SESSION['senha']);
             header('Location: cadastro.php');
         } else {
-            header('Location: sistema.html');
+            $_SESSION['email'] = $email;
+            $_SESSION['senha'] = $senha;
+            header('Location: sistema.php');
         }
     }
 ?>
@@ -39,10 +37,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos/style-login.css">
-    <link rel="stylesheet" href="estilos/medias-login.css">
+    <link rel="stylesheet" href="../estilos/style-login.css">
+    <link rel="stylesheet" href="../estilos/medias-login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
+    <link rel="shortcut icon" href="../estilos/imagens/logo-tro.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -95,8 +93,8 @@
             const senhaVisivel = senha.type === 'text';
             senha.type = senhaVisivel ? 'password' : 'text';
             
-            olho.classList.toggle('bi-eye-fill', !senhaVisivel);
-            olho.classList.toggle('bi-eye-slash-fill', senhaVisivel);
+            olho.classList.toggle('bi-eye-fill', senhaVisivel);
+            olho.classList.toggle('bi-eye-slash-fill', !senhaVisivel);
         });
 
     </script>

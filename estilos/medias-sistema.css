@@ -5,10 +5,45 @@
     
     main {
         flex-flow: column nowrap;
+        height: 1100px;
+        align-items: center;
+    }
+
+    #interacao_Porta {
+        align-items: center;
+        width: 100%;
     }
 
     section#historico, #interacao_Porta > div  {
-        height: 1000px;
+        width: 90vw;
+
     }
 
+    section#historico {
+        margin: 0;
+        margin-top: 15px;
+        height: 100px;
+    }
+
+    #interacao_Porta {
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    #estado_Porta div h2 {
+        font-size: 65px;
+    }
+
+    .label_Toggle {
+        font-size: 35px;
+    }
+
+    .entrada-motivo {
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+    
+    .entrada-motivo label {
+        font-size: 35px;
+    }
 }
